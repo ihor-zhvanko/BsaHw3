@@ -27,9 +27,6 @@ BODY: {
   depature: string
 }
 
-GET: /api/flights/:id/tickets
-GET: /api/flights/:id/depatures
-
 ```
 
 ## Tickets:
@@ -51,6 +48,8 @@ BODY: {
   flightid: number
   price: number
 }
+
+GET: /api/tickets?flightid=:flightid
 
 ```
 
@@ -76,6 +75,11 @@ BODY: {
   crewid: number,
   planeid: number
 }
+
+GET: /api/depatures?flightid=:flightid
+GET: /api/depatures?flightid=:crewid
+GET: /api/depatures?flightid=:planeid
+
 ```
 
 ## AirHostesses
@@ -99,6 +103,8 @@ BODY: {
   lastname: string,
   birthdate: string
 }
+
+GET: /api/arhostesses/:id/crews
 ```
 
 ## Pilots
@@ -123,6 +129,8 @@ BODY: {
   birthdate: string,
   experience: number
 }
+
+GET: /api/pilots/:id/crews
 ```
 
 ## Crews
@@ -141,8 +149,11 @@ BODY: {
 PUT: /api/crew/:id
 BODY: {
   pilotid: number,
-  airhostesses: number[]
+  airhostesids: number[]
 }
+
+GET: /api/crew?pilotid=:pilotid
+GET: /api/crew?airhostesid=:airhostesid
 ```
 
 ## Planes
@@ -167,6 +178,8 @@ BODY: {
   manufactureddate: string,
   servicelife: number
 }
+
+GET: /api/planes?planetypeid=:planetypeid
 ```
 
 ## PlaneTypes
