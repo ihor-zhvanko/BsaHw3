@@ -27,6 +27,9 @@ BODY: {
   depature: string
 }
 
+GET: /api/flights/:id/tickets
+GET: /api/flights/:id/depatures
+
 ```
 
 ## Tickets:
@@ -37,19 +40,15 @@ GET: /api/tickets/
 GET: /api/tickets/:id
 DELETE: /api/tickets/:id
 
-POST: /api/flights/:flightid/tickets/
+POST: /api/tickets/
 BODY: {
+  flightid: number,
   price: number
 }
 
 PUT: /api/tickets/:id
 BODY: {
   flightid: number
-  price: number
-}
-
-PUT: /api/flights/:flightid/tickets/:id
-BODY: {
   price: number
 }
 
@@ -62,20 +61,20 @@ GET: /api/depatures/
 GET: /api/depatures/:id
 DELETE: /api/depatures/:id
 
-POST: /api/flights/:flightid/depatures/
+POST: /api/depatures/
 BODY: {
-  price: number
+  flightid: number,
+  date: string,
+  crewid: number,
+  planeid: number
 }
 
-PUT: /api/tickets/:id
+PUT: /api/depatures/:id
 BODY: {
-  flightid: number
-  price: number
-}
-
-PUT: /api/flights/:flightid/tickets/:id
-BODY: {
-  price: number
+  flightid: number,
+  date: string,
+  crewid: number,
+  planeid: number
 }
 ```
 
